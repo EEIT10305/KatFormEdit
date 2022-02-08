@@ -1,0 +1,797 @@
+#katctbc {
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* select2 選項靠左 */
+.select2-dropdown { 
+  text-align: left;
+}
+
+/* 遮罩 */
+.overlay{
+  position: absolute;
+	width: 100%;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.1);
+	z-index: auto;
+}
+
+.flexRight {
+	justify-content: flex-end;
+	display: flex;
+}
+
+.flexLeft {
+	justify-content: flex-start;
+	display: flex;
+}
+
+.flexCenter {
+	justify-content: center;
+	display: flex;
+}
+
+.flexSpaceBetween {
+	justify-content: space-between;
+	display: flex;
+}
+
+.flexSpaceBetween>button.btn-green {
+	margin: 0px auto;
+}
+
+/* 細捲軸開始 */
+::-webkit-scrollbar {
+	height: 10px;
+	overflow: visible;
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #999999;
+	background-clip: padding-box;
+	border: solid transparent;
+	border-width: 0 0 0 0px;
+	min-height: 28px;
+	padding: 100px 0 0;
+	box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0
+		rgba(0, 0, 0, .07);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #8D8D8D;
+	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .25);
+}
+
+::-webkit-scrollbar-thumb:active {
+	background-color: #666666;
+	box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.35);
+}
+/* 細捲軸結束 */
+
+/* 佈局 */
+/* 製單區-左側圓形功能選單 */
+.sideBar {
+	width: 45px;
+	padding-top:10px;
+	height: 100vh;
+  position: fixed;
+	z-index: 8999;/*要讓mouseover的框框可以蓋住小視窗*/
+}
+
+.leftCircle {
+    margin: 0px auto 10px auto;
+    height: 35px;
+    width: 35px;
+    border: 3px solid #ffffff;
+    border-radius:999em;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 頁籤 */
+.tab-group {
+	display: flex;
+}
+
+.tab-item {
+	background-color: whitesmoke;
+  color: #666d8d;
+  border: 1px solid #666d8d;
+  border-radius: 5px 5px 0px 0px;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+/* 按鈕 */
+.btn {
+  background-color: whitesmoke;
+  color: #666d8d;
+  border: 1px solid #666d8d;
+  border-radius: 5px;
+} 
+
+.btn-light {
+
+}
+
+/* 有色珠珠 */
+.cirlce {
+    height: 10px;
+    width: 10px;
+    border-radius:999em;
+    float:left;
+    margin: 5px 5px;
+}
+
+.cirlce-lv1 {
+    background-color: #D0021B;
+    box-shadow: 0px 0px 4px rgba(255, 68, 90, 0.6);
+}
+
+.cirlce-lv2 {
+    background-color: #F09542;
+    box-shadow: 0px 0px 4px rgba(255, 166, 82, 0.6);
+}
+
+.cirlce-lv3 {
+    background-color: #3794D3;
+    box-shadow: 0px 0px 4px rgba(55, 148, 211, 0.6);
+}
+
+.cirlce-lv4 {
+    background-color: #666d8d;
+}
+
+.cirlce-lv5 {
+    border: 1px solid #666d8d;
+}
+
+/* mouseover小視窗 */
+.katBlockDiv {
+	cursor: default;
+	position: absolute;
+	top: 0px;
+	left: 48px;
+	margin: 5px 0px;
+	display: none;
+}
+
+.katBlockDiv>div {
+	border: 1px solid #373A3C;
+	background: white;
+	border-radius: 10px;
+	min-width: 300px;
+	min-height: 300px;
+	background: #fff;
+}
+
+.katBlockDiv .flexSpaceBetween:not([kattype=divider]) {
+	margin-bottom: 10px;
+}
+
+.katBlockDiv label {
+		color: gray;
+}
+
+/* 版本比對彈窗 */
+.katVerCompare{
+  display: flex;
+  margin: 10px;
+}
+
+/* 版本比對table */
+.katVerCompareDatas{
+  width: 100%;
+}
+
+/* form */
+
+/* 日曆小圖示 */
+.katCalendarSvg {
+	width: 18px;
+	position: absolute;
+	right: 12%;
+	z-index: 0;
+	margin-top: 4px;
+	pointer-events: none;
+}
+
+/* 頁籤畫面 */
+.katBookmarkPage div:not([kattype=katCheckbox] div):not([kattype=katButton]):not(.btn-doc):not(.katDocWindow):not(.katBadge ):not(.btnText):not(.box-full):not(.box-full div):not(.box-half):not(.box-half div):not(.box):not(.box div){
+	width: 100%;
+}
+
+/* 表格元素 */
+.katTableStyle {
+	width: 95%;
+	margin: 0px auto;
+	margin-bottom: 30px;
+}
+
+.katTableStyle td {
+	padding-top: 10px;
+	text-align: center;
+}
+
+.katTableStyle thead td {
+	border-bottom: 2px dotted gray;
+	font-weight: bold;
+}
+
+.katTableStyle tbody td {
+	border-bottom: 1px dotted gray;
+}
+
+/* ○ 文字 */
+[class*='katUl'] {
+	text-align: left;
+	margin: 10px;
+	font-weight: bold;
+}
+
+[class*='katUl']>figure {
+	margin-top: 9px;
+	margin-right: 10px;
+}
+
+/* 圈圈和字都是綠色 */
+.katUlGreen {
+	color: #666d8d;
+	font-size: 20px;
+}
+
+/* 圈圈是中空 字是灰色 */
+.katUlWhite {
+	color: gray;
+	font-size: 18px;
+}
+
+/* 圈圈是中空 字是細體灰色 */
+.katUlThinWhite {
+	font-weight: inherit;
+	color: gray;
+}
+
+/* 圈圈和字都是綠色 自有底線 */
+.katUlWhiteGreen {
+	color: #17a2b8;
+	font-size: 18px;
+	text-decoration: underline;
+}
+
+/* 疊在一起的文字 */
+[kattype=katFileHref] label{
+  text-decoration: underline;
+	position: relative;
+	z-index: 1;
+}
+
+/* 疊在一起的文字 */
+.katFileHref{
+  text-align: left;
+}
+
+/* 分隔線 */
+.katDivider {
+	width: 100%;
+	border-bottom: 1px dashed grey;
+}
+
+/* textarea */
+.katTextArea{
+	display: flex;
+}
+
+.katTextArea textarea{
+	width: 95%;
+	margin-left: 25px;
+	border-radius: 5px;
+	resize: none;
+}
+
+.katTextArea textarea:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+	border: 1px solid #666d8d;
+}
+/* 只有底線 */
+.katTextAreaBorderBottom{
+	display: flex;
+}
+
+.katTextAreaBorderBottom textarea{
+	width: 100%;
+	border-top: none;
+  border-left: none;
+  border-right: none;
+	resize: none;
+  overflow: hidden;
+}
+
+.katTextAreaBorderBottom textarea:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+	border-bottom: 1px solid #666d8d;
+}
+/* 與...有關專用(只有底線) */
+.katINFOTextArea{
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.katINFOTextArea textarea{
+	width: 100%;
+	border-top: none;
+  border-left: none;
+  border-right: none;
+	resize: none;
+  overflow: hidden;
+}
+
+.katINFOTextArea textarea:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+	border-bottom: 1px solid #666d8d;
+}
+/* 沒有邊框 */
+.katTextAreaNoBorder {
+	display: flex;
+}
+
+.katTextAreaNoBorder textarea{
+	width: 100%;
+	border: none;
+	resize: none;
+	overflow: hidden;
+}
+
+.katTextAreaNoBorder textarea:focus {
+	border: none;
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* 單據專用textarea */
+.katformTextArea{
+	width: 100%;
+	border-top: none;
+  border-left: none;
+  border-right: none;
+	resize: none;
+  overflow: hidden;
+}
+
+.katformTextArea:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+	border-bottom: 1px solid #666d8d;
+}
+
+/* 單據頁籤 */
+.documentList {
+	flex-direction: column;
+	background-color: #ffffff;
+	border: 1px solid #C6CBD4;
+	border-radius: 0 5px 5px 5px;
+	margin: 0 8px 10px 8px;
+	padding: 5px 10px;
+	height: 80px;
+	position: relative;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	overflow-y: auto;
+	white-space: nowrap;
+}
+
+/*viewArea & 文件Box*/
+
+/*水平排列*/
+.h-arrangement {
+	height: auto;
+	display: flex;
+	white-space: nowrap;
+	overflow-x: auto;
+}
+
+.v-arrangement {
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box-title {
+	color: #ffffff;
+	background-color: #666d8d;
+	text-align: center;
+	padding: 2px 0px;
+}
+
+/* 小視窗 */
+/* 與其他資料匯入按鈕 */
+.katTextWindowBtn{
+  background: whitesmoke;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0px 10px;
+  padding: 0px 5px;
+	font-weight: bold;
+}
+/* 匯入欄位勾選框 */
+.katCheckboxImport{
+	position: absolute;
+  top: -15px;
+  left: -30px;
+}
+
+.katDocWindow{
+  width: 45%;
+  position: relative;
+  overflow: hidden;
+  background: #553e3e;
+  margin: 0px 10px 10px 0px;
+  float: left;
+}
+
+.katDocWindow  > div:nth-of-type(3) > div{
+  overflow: auto;
+  background: white;
+  height: 100%;
+}
+
+.katPrintDocWindow{
+  width: 48%;
+  overflow: hidden;
+  background: #553e3e;
+  margin: 5px 1%;
+  float: left;
+}
+
+.box, .box-half, .box-full {
+	background: #553e3e;
+	margin: 0 10px 10px 0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.box  > div:nth-of-type(3) > div{
+  overflow: auto;
+  height: 100%;
+}
+
+.box-half > div:nth-of-type(3) > div{
+  overflow: auto;
+  height: 100%;
+}
+
+.box-full  > div:nth-of-type(3) > div{
+  overflow: auto;
+  height: 100%;
+}
+
+@media screen and (min-width: 1680px) {
+	.box{
+		min-width: 500px;
+	}
+	.box > div:nth-of-type(3){
+		width: 500px;
+	}
+
+	.box-half {
+		min-width: 750px;
+	}
+	.box-half > div:nth-of-type(3){
+		width: 750px;
+	}
+}
+
+@media screen and (max-width: 1680px) {
+	.box{
+		min-width: 500px;
+	}
+	.box > div:nth-of-type(3){
+		width: 500px;
+	}
+
+	.box-half {
+		min-width: 750px;
+	}
+	.box-half > div:nth-of-type(3){
+		width: 750px;
+	}
+}
+
+@media screen and (max-width: 1440px) {
+	.box{
+		min-width: 430px;
+	}
+	.box > div:nth-of-type(3){
+		width: 430px;
+	}
+
+	.box-half {
+		min-width: 640px;
+	}
+	.box-half > div:nth-of-type(3){
+		width: 640px;
+	}
+}
+
+@media screen and (max-width: 1366px) {
+	.box{
+		min-width: 380px;
+	}
+	.box > div:nth-of-type(3){
+		width: 390px;
+	}
+
+	.box-half {
+		min-width: 580px;
+	}
+	.box-half > div:nth-of-type(3){
+		width: 580px;
+	}
+}
+
+@media screen and (max-width:1024px) {
+	.box{
+		min-width: 310px;
+	}
+	.box > div:nth-of-type(3){
+		width: 310px;
+	}
+
+  .box-half {
+		min-width: 460px;
+	}
+	.box-half > div:nth-of-type(3){
+		width: 460px;
+	}
+}
+
+/* 20210809討論讓單據視窗固定寬度 */
+.box-half {
+	min-width: 800px;
+}
+.box-half > div:nth-of-type(3){
+	width: 800px;
+}
+
+/* 製單要件 */
+.katMakerDocumentForm {
+    border: 1px solid gray;
+    height: calc(80vh - 27px);
+		background: #ffffff;
+		overflow: auto;
+}
+
+[kattype=katCheckbox]{ 
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px 0px;
+}
+
+[kattype=katCheckbox]>div{ 
+	display: flex;
+	margin: 5px;
+}
+
+div[kattype=katCheckbox] label{
+	margin-right: 20px;
+	margin-bottom: 0px;
+	font-size: 16px!important;
+}
+
+[kattype=katCheckbox]>label{
+  	width: 10%;
+    margin: 0px 30px;
+}
+
+.katMarkerCheckboxs {
+    font-size: 18px!important;
+}
+
+.katMarkerCheckboxs [kattype=katCheckbox] label{
+    margin: 0px 20px 0px 0px;
+}
+
+.katMarkerCheckboxs [kattype=katCheckbox]>label{
+  	width: 13%;
+    margin: 0px 5px 0px 40px;
+}
+
+.katMarkerLabels{
+    font-size: 18px;	
+}
+
+
+/* 提示文件、預審底稿按鈕區 */
+.katDocsButtonsDiv{
+    border: 1px solid gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #ffffff;
+}
+
+.katDocsButtonsDiv .docButtons{
+	margin: 5px;
+}
+
+.katDocsWindowsDiv{
+    margin: 5px 0px 0px 0px;
+}
+
+/* 第三方文件上傳 檔案 */
+[funname=fileOpenPdfViewer]{
+  color: #666d8d;
+}
+
+/* 歷史單據 案件編號 */
+[funname=toggleDocName]{
+  text-decoration: underline;
+}
+
+.tempCss{
+  position: relative;
+	z-index: 1;
+}
+
+/*押匯申請書*/
+.katHTMLForm{
+  background: #ffffff;
+  font-size: 14px;
+	font-weight: bold;
+	width: 1200px;
+}
+
+.katHTMLForm .flexSpaceBetween label{
+	margin-bottom: 0.1rem;
+	word-break: break-all;
+}
+
+.katHTMLForm div[kattype=katCheckbox]{
+  margin: 0px;
+}
+
+.katHTMLForm div[kattype=katCheckbox] label{
+  font-size: 14px!important;
+}
+
+.katHTMLForm .flexSpaceBetween{
+	min-height: 28px;
+}
+
+.katHTMLForm input[type=checkbox] {
+	margin-right: 10px;
+	cursor: pointer;
+	font-size: 14px;
+	width: 18px;
+	height: 18px;
+	position: relative;
+	vertical-align:sub;
+}
+
+.katHTMLForm input[type=checkbox]:after {
+	width: 18px;
+	height: 18px;
+	top: 0;
+	content: " ";
+	color: #fff;
+	display: inline-block;
+	visibility: visible;
+	padding: 0 2px;
+	border-radius: 3px;
+	background:#FFFFFF;
+	border:1px solid #50B3AF;
+}
+
+.katHTMLForm input[type=checkbox]:checked:after {
+	content: "✓";
+	font-family: system-ui;
+	font-size: 16px;
+	font-weight:300;
+	line-height: 16px;
+	background-color: #50B3AF;
+}
+
+/* 列印的時候disabled欄位要變白 */
+.bg-white input[type="text"]:not(.katApplyDocumentTable input):disabled {
+  background: #f2f3f5 !important;
+}
+.bg-white textarea:disabled {
+  background: #f2f3f5 !important;
+}
+input[type="text"]:not(.popupBody input):disabled {
+  background: white;
+}
+textarea:not(.katTextArea textarea):disabled {
+  background: white;
+}
+
+.katApplyDocumentTable{
+  position: relative;
+	border: 2px solid gray;
+}
+
+@media print {}
+
+.katApplyDocumentTable td {
+	border: 1px solid gray;
+	padding: 1px;
+}
+
+.katApplyDocumentTable td label{
+	margin: 0px;
+}
+
+.katApplyDocumentTable td [kattype=katLabelInput]{
+	min-height: 22px;
+}
+
+/* input樣式 */
+
+/* 沒有border */
+.katInputNoBorder{
+	border: none;
+	background: none;
+}
+
+.katInputNoBorder:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* 只有底線 */
+.katInputBorderBottom{
+	border-top: none;
+  border-right: none;
+  border-left: none;
+	border-bottom: 1px solid #c6cbd4;
+}
+
+.katInputBorderBottom:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+	border-bottom: 1px solid #666d8d;
+}
+
+/* 列印 */
+.katTreeCheckboxs>div [kattype=katCheckbox]:nth-child(2n+2) label{
+	margin-left: 25px;
+}
+
+.katTreeCheckboxs>div [kattype=katCheckbox]:nth-child(3n+3){
+	width: 100%;
+	margin: 5px 25px;
+}
+
+/* 預審底搞 */
+div[kattype=katRadio] label{
+  	width: 35%;
+		font-size: 16px;
+}
+
+div[katType=katButtons] [katType=katButton]{
+	margin-bottom: 5px;
+}
+
+.katTableCssSerial {
+	counter-reset: serial-number;
+}
+
+.katTableCssSerial tbody td:first-child:before {
+	counter-increment: serial-number;
+	content: counter(serial-number);
+}
