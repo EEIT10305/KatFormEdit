@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/DefaultLayout">
+
+<head>
+  <title>FORM EDITING</title>
+  <script type="text/javascript" src="/js/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap/4.5.0/bootstrap.bundle.min.js"></script>
+  <!--jquery拖拉 -->
+  <script type="text/javascript" src="/js/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/js/jquery-ui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+  <!-- 日曆 -->
+  <script type="text/javascript" src="/js/datatimepicker/bootstrap-datetimepicker.min.js"></script>
+  <!-- i18n -->
+  <script type="text/javascript" src="/js/jquery-i18n-properties/1.2.7/jquery.i18n.properties.js"></script>
+  <script type="text/javascript" src="/js/kati18n.js"></script>
+  <!--jquery物件自訂方法 -->
+  <script type="text/javascript" src="/js/jquery.kat.mcuobject.js"></script>
+  <!-- 製單相關 -->
+  <script type="text/javascript" src="/js/MpsDocService.js"></script>
+  <script type="text/javascript" src="/js/MpsElement.js"></script>
+  <script type="text/javascript" src="/js/MpsDoc.js"></script>
+  <script type="text/javascript" src="/js/Mpsform.js"></script>
+  <script type="text/javascript" src="/js/MpsDocForm.js"></script>
+  <script type="text/javascript" src="/js/MpsBookmark.js"></script>
+  <script type="text/javascript" src="/js/validate.js"></script>
+  <!-- 製單init -->
+  <script type="text/javascript" src="/js/index.js"></script>
+  <!-- 規則 -->
+  <script type="text/javascript" src="/data/rules.js"></script>
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+  <!-- jquery拖拉 css -->
+  <link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
+  <!-- 日曆 css -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-datetimepicker.min.css" />
+  <!-- bootstrap -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <th:block layout:fragment="content">
+    <div id="katctbc"></div>
+    <script type="text/javascript" src="/js/setting/applyDocument.js"></script>
+    <script type="text/javascript" src="/js/setting/exchangeBill.js"></script>
+    <script type="text/javascript" src="/js/setting/setting.js"></script>
+  </th:block>
+
+</body>
+
+</html>
