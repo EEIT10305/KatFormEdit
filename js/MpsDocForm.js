@@ -62,7 +62,7 @@ MpsDocForm.prototype = Object.assign(MpsDocForm.prototype, (function () {
             ele.id = ele.dataKey;
           }
           //匯票
-          self.renameDFT(self, ele);
+          self.renameYYY(self, ele);
           return ele;
         });
       });
@@ -74,7 +74,7 @@ MpsDocForm.prototype = Object.assign(MpsDocForm.prototype, (function () {
       var self = this;
 
       switch (this.formid) {
-        case 'APP':
+        case 'XXX':
           setTimeout(function () {
             
             //電文的文件份數
@@ -145,8 +145,8 @@ MpsDocForm.prototype = Object.assign(MpsDocForm.prototype, (function () {
             });
 
             //如果是OP編輯過的欄位要disabled
-            var opEditAPP = self.service.getSaveDataByKey('opEditAPP') || [];
-            opEditAPP.forEach(function(k){
+            var opEditXXX = self.service.getSaveDataByKey('opEditXXX') || [];
+            opEditXXX.forEach(function(k){
               
               if(!k){
                 return;
@@ -185,7 +185,7 @@ MpsDocForm.prototype = Object.assign(MpsDocForm.prototype, (function () {
       }
 
       //押匯申請書或匯票要存第0版
-      if (['APP', 'DFT'].indexOf(this.formid) != -1 && this.save0) {
+      if (['XXX', 'YYY'].indexOf(this.formid) != -1 && this.save0) {
 
         // 要存第0版
         var applyDocForm = this.service.getFormListByPageId('applyDocForm')[0];
@@ -212,7 +212,7 @@ MpsDocForm.prototype = Object.assign(MpsDocForm.prototype, (function () {
       }
 
       switch (this.formid) {
-        case 'APP':
+        case 'XXX':
           if (self.$parent.attr('id') == 'printDownload') break; //若為列印不綁定事件
           self.katELement.find('[kattype=katTable]').each(function (i, table) {
             $(table).on('focusout', '[kattype=input]', function () {
@@ -1102,15 +1102,15 @@ MpsDocForm.prototype = Object.assign(MpsDocForm.prototype, (function () {
       return true;
     },    
     //新增匯票時,id要重新命名,避免addevent失效
-    renameDFT: function (self, ele) {
-      if (self.btnid.indexOf('DFT') == -1) {
+    renameYYY: function (self, ele) {
+      if (self.btnid.indexOf('YYY') == -1) {
         return;
       }
-      //EX:DFT2_1、DFT3_1、DFT4_1
+      //EX:YYY2_1、YYY3_1、YYY4_1
       var btnid = self.btnid.split('_')[0];
       var btnWord = btnid.replace(/[0-9]/ig, "");
       var btnNum = btnid.replace(/[^0-9]/ig, "") || 1;
-      if (ele.dataKey && btnWord == 'DFT' && parseInt(btnNum, 10) > 1) {
+      if (ele.dataKey && btnWord == 'YYY' && parseInt(btnNum, 10) > 1) {
         ele.id = ele.dataKey + '_' + self.btnid;
       }
     },    

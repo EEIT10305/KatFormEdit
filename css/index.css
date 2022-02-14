@@ -118,18 +118,55 @@
 
 }
 
+.btn-doc {
+	margin: 0px 5px;
+	background: whitesmoke;
+  padding: 5px 10px;
+  border-radius: 5px;
+	border: 1px solid #666d8d;
+  display: flex;
+}
+
+.btn-doc:hover{
+  background: gainsboro;
+  padding: 5px 10px;
+  border-radius: 5px;
+	border: 1px solid #666d8d;
+}
+
+.tooltiptext-sdrm {
+	visibility: hidden;
+	position: absolute;
+	background: #999999;
+	color: whitesmoke;
+	font-size: 10px;
+  margin: 35px;
+	border-radius: 5px;
+}
+
+.btn-doc:hover .tooltiptext-sdrm {
+	visibility: visible;
+}
+
+.btn-sm-add {
+  background: whitesmoke;
+  padding: 5px 10px;
+  border-radius: 5px;
+	border: 1px solid #666d8d;
+}
+
 /* 有色珠珠 */
 .cirlce {
-    height: 10px;
-    width: 10px;
-    border-radius:999em;
-    float:left;
-    margin: 5px 5px;
+  height: 10px;
+  width: 10px;
+  border-radius:999em;
+  float:left;
+  margin: 5px 5px;
 }
 
 .cirlce-lv1 {
-    background-color: #D0021B;
-    box-shadow: 0px 0px 4px rgba(255, 68, 90, 0.6);
+  background-color: #D0021B;
+  box-shadow: 0px 0px 4px rgba(255, 68, 90, 0.6);
 }
 
 .cirlce-lv2 {
@@ -719,7 +756,6 @@ textarea:not(.katTextArea textarea):disabled {
 }
 
 .katApplyDocumentTable{
-  position: relative;
 	border: 2px solid gray;
 }
 

@@ -321,7 +321,7 @@ MpsDocsButtons.prototype = Object.assign(MpsDocsButtons.prototype, (function () 
       var params = {
         windowsDiv: self.docsWindows,
         $parent: self.docsWindows.katELement,
-        barmode: formid == 'DFT' ? 'dft' : (jqobj.attr('barmode') || 'textview'),
+        barmode: formid == 'YYY' ? 'dft' : (jqobj.attr('barmode') || 'textview'),
         mode: 'formwindow',
         title: title.join('_'),//視窗綠底標題
         btnid: jqobj.attr('id'),
@@ -330,7 +330,7 @@ MpsDocsButtons.prototype = Object.assign(MpsDocsButtons.prototype, (function () 
         serialNo: jqobj.attr('serialNo') || '',//單據排序用流水編號
       };
 
-      if (katctbc.compare_flag && formid == 'DFT') {
+      if (katctbc.compare_flag && formid == 'YYY') {
         var key = jqobj.attr('key')
 
         //與前前一版比 字要變藍
@@ -725,10 +725,10 @@ MpsDocsButtons.prototype = Object.assign(MpsDocsButtons.prototype, (function () 
       
     },
     //新增匯票
-    addDFTMpsBtn: function (e, self, jqobj) {
+    addYYYMpsBtn: function (e, self, jqobj) {
       self.addDoc(self, 0, {
-        formid: 'DFT',
-        katformname: 'DFT',
+        formid: 'YYY',
+        katformname: 'YYY',
         funname: 'formButton'
       });
     },
@@ -1193,7 +1193,7 @@ MpsDocsWindow.prototype = Object.assign(MpsDocsWindow.prototype, (function () {
                 idPrintMode: true,
               };
 
-              var katform = self.createMpsElement(self.katformid == 'DFT' ? param_form : param_katform);
+              var katform = self.createMpsElement(self.katformid == 'YYY' ? param_form : param_katform);
 
               $pdfView.append(katform);
 
@@ -1419,7 +1419,7 @@ MpsDocsWindow.prototype = Object.assign(MpsDocsWindow.prototype, (function () {
 
                 var cols = d1;
 
-                if (['APP', 'DFT'].indexOf(self.formid) != -1) {
+                if (['XXX', 'YYY'].indexOf(self.formid) != -1) {
                   cols = $pdfView.children().attr('columns').split(',');
                 }
 
@@ -1451,7 +1451,7 @@ MpsDocsWindow.prototype = Object.assign(MpsDocsWindow.prototype, (function () {
     changeEventFunction: function ($this, self, colName, flag) {
       var v = $this.getMcuVal();
 
-      if (self.prevData && $this.parents('[kattype=katDocForm]').attr('formid') != 'APP') {//因為押匯申請書沒有答應要做版本比對
+      if (self.prevData && $this.parents('[kattype=katDocForm]').attr('formid') != 'XXX') {//因為押匯申請書沒有答應要做版本比對
 
         var pv = self.prevData[colName] || '';//變綠
         var diff = (self.diff[colName] || {}).o || '';//變藍

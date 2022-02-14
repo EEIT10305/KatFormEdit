@@ -655,19 +655,6 @@ MpsElement.prototype = (function () {
               var $child = self.createMpsElement({ katType: 'div', className: 'doc-inner' });
               $child.append(self.createMpsElement({ katType: 'div', className: 'btnText' }));
 
-              if (attrMap.del) {
-                $child.append(self.createMpsElement({
-                  katType: 'img',
-                  id: attrMap.id + 'del',
-                  funname: 'delFormButton',
-                  src: 'delFormBtn',
-                  width: '14px',
-                  height: '21px',
-                  marginRight: '5px',
-                  className: 'overlayFlag'
-                }));
-              }
-
               $ele.append($child);
 
               if (attrMap.title) {
@@ -681,6 +668,20 @@ MpsElement.prototype = (function () {
 
                 delete attrMap.title;
               }
+
+              if (attrMap.del) {
+                $ele.append(self.createMpsElement({
+                  katType: 'span',
+                  id: attrMap.id + 'del',
+                  text: 'X',
+                  funname: 'delFormButton',
+                  width: '14px',
+                  height: '21px',
+                  className: 'overlayFlag',
+                  color: 'indianred'
+                }));
+              }
+
               break;
             case 'tooltip-sdrm'://有圖片的按鈕
 
@@ -1791,7 +1792,7 @@ MpsElement.prototype = (function () {
       var self = this;
 
       //押匯申請書 幣別 先取畫面的值
-      var app_currency = $('[formid=APP]').find('[dataKey=CURRENCY_1]').getMcuVal();//押匯申請書
+      var app_currency = $('[formid=XXX]').find('[dataKey=CURRENCY_1]').getMcuVal();//押匯申請書
 
       //是否有匯票 有: 取得所有匯票之幣別,無: 取得 INV(多筆)幣別
       var dft_currency = [];
@@ -1811,14 +1812,14 @@ MpsElement.prototype = (function () {
         var caseSetGuid = f.caseSetGuid || f.guid;
         var back_data = self.service.getBackSaveDataByKey(caseSetGuid) || {};
 
-        if (f.formid == 'DFT' && f.isMax == 'Y') {
+        if (f.formid == 'YYY' && f.isMax == 'Y') {
           var d_a = $('[dataKey="' + caseSetGuid + '"]').find('[dataKey=CURRENCY_1]').getMcuVal();
           d_a = d_a || back_data['CURRENCY_1'];
           dft_currency.push(d_a);
         }
 
         //押匯申請書 無畫面的值 取DB
-        if (f.formid == 'APP' && f.isMax == 'Y') {
+        if (f.formid == 'XXX' && f.isMax == 'Y') {
           if (!app_currency) {
             app_currency = back_data['CURRENCY_1'];
           }
@@ -1873,7 +1874,7 @@ MpsElement.prototype = (function () {
       var self = this;
 
       //押匯申請書 金額 先取畫面的值
-      var app_amuount = $('[formid=APP]').find('[dataKey=TOTAL_AMOUNT_1]').getMcuVal();//押匯申請書
+      var app_amuount = $('[formid=XXX]').find('[dataKey=TOTAL_AMOUNT_1]').getMcuVal();//押匯申請書
 
       //是否有匯票 有: 加總匯票,無: 加總所有ITEM_AMOUNT
       var dft_amount = [];
@@ -1884,14 +1885,14 @@ MpsElement.prototype = (function () {
         var caseSetGuid = f.caseSetGuid || f.guid;
         var back_data = self.service.getBackSaveDataByKey(caseSetGuid) || {};
 
-        if (f.formid == 'DFT' && f.isMax == 'Y') {
+        if (f.formid == 'YYY' && f.isMax == 'Y') {
           var d_a = $('[dataKey="' + caseSetGuid + '"]').find('[dataKey=TOTAL_AMOUNT_1]').getMcuVal();
           d_a = d_a || back_data['TOTAL_AMOUNT_1'];
           dft_amount.push(d_a);
         }
 
         //押匯申請書 無畫面的值 取DB
-        if (f.formid == 'APP' && f.isMax == 'Y') {
+        if (f.formid == 'XXX' && f.isMax == 'Y') {
           if (!app_amuount) {
             app_amuount = back_data['TOTAL_AMOUNT_1'];
           }

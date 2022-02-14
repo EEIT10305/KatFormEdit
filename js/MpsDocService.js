@@ -1387,9 +1387,9 @@ MpsDocService.prototype = (function () {
       if (result2.length == 0) {
         katctbc.addApplyForms = true;//儲存時會去新增
 
-        var sys1004_2_APP = self.getSysMenuByValue('1004_2', 'APP') || {};
+        var sys1004_2_XXX = self.getSysMenuByValue('1004_2', 'XXX') || {};
 
-        var katformid = sys1004_2_APP.cdId;
+        var katformid = sys1004_2_XXX.cdId;
         var caseSet = 1;
         var serialNo = '0001';
         var key = katformid + caseSet + serialNo;
@@ -1400,7 +1400,7 @@ MpsDocService.prototype = (function () {
 
           result2.push({
             id: katformid,
-            text: sys1004_2_APP.cdNm,
+            text: sys1004_2_XXX.cdNm,
             funname: 'formButton',
             formid: katformid,
             barmode: 'close',
@@ -1972,8 +1972,8 @@ MpsDocService.prototype = (function () {
             num = info.numberOfDoc;
           }
 
-          //20211120惠萍說 INS DFT 固定塞2/2;20211214玉芸姊說 只有DFT固定塞2/2(下次誰說要改叫他(她)自己改)
-          if (docId == 'DFT') {
+          //20211120惠萍說 INS YYY 固定塞2/2;20211214玉芸姊說 只有YYY固定塞2/2(下次誰說要改叫他(她)自己改)
+          if (docId == 'YYY') {
             num = '2/2';
           }
 
@@ -3032,9 +3032,9 @@ MpsDocService.prototype = (function () {
         caseGuid: caseData.guid,
         lcno: caseData.lcno,
         caseNo: caseData.caseNo,
-        currency: $('[formid=APP] [dataKey=CURRENCY_1]').getMcuVal() || caseData.currency,
-        appAmount: $('[formid=APP] [dataKey=TOTAL_AMOUNT_1]').getMcuVal() || caseData.appAmount,
-        applicant: $('[data-field-name=APP_NAME_ADD]').getMcuVal() || caseData.applicant,
+        currency: $('[formid=XXX] [dataKey=CURRENCY_1]').getMcuVal() || caseData.currency,
+        appAmount: $('[formid=XXX] [dataKey=TOTAL_AMOUNT_1]').getMcuVal() || caseData.appAmount,
+        applicant: $('[data-field-name=XXX_NAME_ADD]').getMcuVal() || caseData.applicant,
         caseKeyinJson: caseKeyin,
         caseSetJsonInf: casesetinfList,
         amlopKeyinJson: {
@@ -3358,7 +3358,7 @@ MpsDocService.prototype = (function () {
       //匯票也納入版本比對
       var apply_lists = self.getFormListByPageId('applyDocForm')[0];
       apply_lists = apply_lists.filter(function (f) {
-        return ((f.formid == 'DFT') || isCompareNow);
+        return ((f.formid == 'YYY') || isCompareNow);
       });
       lists[0] = lists[0].concat(apply_lists);
 

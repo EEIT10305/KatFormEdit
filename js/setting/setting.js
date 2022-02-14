@@ -91,9 +91,9 @@
                   [
                     {
                       katType: 'button',
-                      id: 'addDFTMpsBtn',
-                      text: $.i18n.transtale('message.page.zhTw.addDFT'),
-                      funname: 'addDFTMpsBtn',
+                      id: 'addYYYMpsBtn',
+                      text: $.i18n.transtale('message.page.zhTw.addYYY'),
+                      funname: 'addYYYMpsBtn',
                       className: 'btn-sm-add btn-light overlayFlag'
                     },
                   ],
@@ -778,9 +778,9 @@
         },
         //========================== 3.編輯視窗+彈窗 ==========================
         //押匯申請書-申請書-編輯視窗
-        APP: kat.applyDoc(),
+        XXX: kat.applyDoc(),
         //押匯申請書-匯票-編輯視窗
-        DFT: kat.exchangeBill(),
+        YYY: kat.exchangeBill(),
         //第三方文件上傳-客戶作業-編輯視窗
         thirdPartyDocUpload: {
           katType: 'div',

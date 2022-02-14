@@ -26,13 +26,13 @@ window.katctbc = {
  * 自定義事件
  */
 var myEvent = {
-  'buttonDataChange': new CustomEvent('buttonDataChange',{
+  'buttonDataChange': new CustomEvent('buttonDataChange', {
     detail: {
       pageId: ''
     }
   }),
-  'docFormRefresh': new CustomEvent('docFormRefresh',{
-    detail:{
+  'docFormRefresh': new CustomEvent('docFormRefresh', {
+    detail: {
       formid: ''
     }
   })
@@ -42,12 +42,12 @@ $(function () {
   katctbc.initdata('zh-tw');
 
   //20211108 匯票要有兩份在一個畫面上
-  var dft_copy = copyJson(katctbc.elements.forms.DFT.content);
+  var dft_copy = copyJson(katctbc.elements.forms.YYY.content);
   dft_copy.forEach(function (eles) {
     eles.forEach(function (ele) {
 
       ele.disabled = true;
-      
+
       if (ele.dataKey) {
         ele.dataKey += '_1';
       }
@@ -56,8 +56,8 @@ $(function () {
       }
     });
   });
-  katctbc.elements.forms.DFT.content = katctbc.elements.forms.DFT.content.concat([[{ katType: 'divider'}]]);
-  katctbc.elements.forms.DFT.content = katctbc.elements.forms.DFT.content.concat(dft_copy);
+  katctbc.elements.forms.YYY.content = katctbc.elements.forms.YYY.content.concat([[{ katType: 'divider' }]]);
+  katctbc.elements.forms.YYY.content = katctbc.elements.forms.YYY.content.concat(dft_copy);
 
   var service = new MpsDocService();
 
@@ -67,14 +67,47 @@ $(function () {
 
   console.log('lcno = ' + lcno);
   console.log('caseno = ' + caseno);
-  
-  var result = service.sendRequest('queryCaseInfo',{
-    lcno: lcno,
-    caseNo: caseno
-  });
-  
-  if(result && result.code == '200'){
+
+  var result = {
+    code: '200',
+    lcCaseInf: {
+      status: '2'
+    },
+    lcLcInf: {
+      isPause: 'N',
+      iswatermark: 'N',
+    },
+    sysMenu: {
+      1004: [
+        {
+          cdId: 'XXX',
+          cdNm: 'SETTING FORM 1',
+          flag01: '2'
+
+      },
+    ],
+    },
+    lcCaseSetInfList: [
+      {
+        docId: 'AAA',
+        docName: 'HandMaded Form 1',
+        caseSet: '1',
+        serialNo: '00001',
+        caseNowVer: 1
+      },
+    ],
+    historyCaseList: [],
+    mfFormSetInfRuleList: '{"ruleList":[]}',
+    reAssignLcEventInfList: [
+      {
+        eventDesc: 'Assigned Record 1'
+      },
+    ]
+  }
+
+  if (result && result.code == '200') {
     service.allInf(result);
+    service.dataToViewTemplate();
   }
 
   if (false) {
@@ -101,14 +134,14 @@ $(function () {
   //未儲存不能離開
   $('#katctbc').prevAll().each(function (i, e) {
     $(e).find('a').each(function (ii, ee) {
-      
-      if($(ee).attr('href') == '#'){
+
+      if ($(ee).attr('href') == '#') {
         return;
       }
 
       $(ee).attr('onClick', 'return false');
 
-      $(ee).click(function(){
+      $(ee).click(function () {
 
         if ((katctbc.isSave || katctbc.overlayFlag) && !katctbc.isCaseAgain) {
 
@@ -125,7 +158,7 @@ $(function () {
         }
 
       });
-      
+
     });
   });
 
