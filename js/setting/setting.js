@@ -11,14 +11,14 @@
       printMpsBtn: 'images/icon-Document-Printer.svg',//列印
       printOneMpsBtn: 'images/icon-Document-Printer.svg',//列印單張
       downloadMpsBtn: 'images/icon-Document-Download.svg',//下載
-      closeMpsBtn: 'images/icon-CloseCross.svg',//關閉
-      copyOneBtn: 'images/icon-Document-Copy.svg',//複製單一文件
+      closeMpsBtn: 'images/icons8-xbox-x-50.png',//關閉
+      copyOneBtn: 'images/icons8-copy-24.png',//複製單一文件
       verCompareBtn: 'images/icon-Document-VersionDiff.svg',//版本比對
       rmThirdDocMpsBtn: 'images/icon-Btnsm-Cross.svg',//叉叉
       rmThirdDocMpsBtnDisa: 'images/icon-CloseCross.svg',//白色叉叉
       delMpsBtn: 'images/icon-SquareBtn-Delete.svg',//垃圾桶
       delMpsBtnDisa: 'images/icon-SquareBtn-Delete_Disable.svg',//垃圾桶disabled
-      copyMpsBtn: 'images/icon-SquareBtn-Copy.svg',//複製
+      copyMpsBtn: 'images/icons8-copy-24-black.png',//複製
       copyMpsBtnDisa: 'images/icon-SquareBtn-Copy_Disable.svg',//複製disabled
       delFormBtn: 'images/icon-Btnsm-Delete.svg',//刪除文件
       hideDocMpsBtn: 'images/icon-Btnsm-Up.svg',//往上箭頭
@@ -151,13 +151,13 @@
                       funname: 'formButton',
                       formid: 'thirdPartyDocUpload'
                     },
-                    {
-                      katType: 'button',
-                      id: 'addDocMpsBtn',
-                      text: $.i18n.transtale('message.page.addDoc'), //新增文件
-                      funname: 'addDocMpsBtn',
-                      className: 'btn-sm-add btn-light overlayFlag'
-                    },
+                    // {
+                    //   katType: 'button',
+                    //   id: 'addDocMpsBtn',
+                    //   text: $.i18n.transtale('message.page.addDoc'), //新增文件
+                    //   funname: 'addDocMpsBtn',
+                    //   className: 'btn-sm-add btn-light overlayFlag'
+                    // },
                   ],
                   //放在畫面下面
                   [
@@ -251,15 +251,6 @@
                 text: $.i18n.transtale('message.page.summary'), //摘要
                 className: 'katUlGreen'
               },
-              {
-                katType: 'button',
-                id: '',
-                text: $.i18n.transtale('message.page.previewResultHistorySearch'), //預審結果歷程查詢
-                funname: 'previewResultHistorySearch',
-                className: 'btn btn-light',
-                margin: '15px 1%',
-                width: '170px'
-              }
             ],
             [
               {
@@ -695,24 +686,6 @@
                 katType: 'div',
                 width: '20%'
               },
-              {
-                katType: 'button',
-                id: 'download_vc',
-                text: $.i18n.transtale('message.page.dowmload'), //下載
-                funname: 'verCompareDownload',
-                className: 'btn-sm btn-light',
-                minWidth: '15%',
-                marginTop: '20px',
-              },
-              {
-                katType: 'button',
-                id: 'print_vc',
-                text: $.i18n.transtale('message.page.print'), //列印
-                funname: 'verComparePrint',
-                className: 'btn-sm btn-light',
-                minWidth: '15%',
-                marginTop: '20px',
-              },
 
             ],
             [
@@ -808,11 +781,6 @@
                     katType: 'label',
                     text: $.i18n.transtale('message.page.zhTw.fileType'), //文件種類
                     width: '20%'
-                  },
-                  {
-                    katType: 'label',
-                    text: $.i18n.transtale('message.page.giveUpPrompt'), //放棄提示
-                    width: '9.5%'
                   },
                   {
                     katType: 'label',
@@ -1602,14 +1570,6 @@
             key: 'docCategory'
           },
           {
-            katType: 'input',
-            id: 'giveupHintMpsBtn',
-            funname: 'shareWithOtherMpsRadio',
-            type: 'radio',
-            key: 'hint',
-            checked: '',
-          },
-          {
             katType: 'katButton',
             id: 'chooseDocMpsBtn',
             text: $.i18n.transtale('message.page.chooseFile'), // 選擇檔案
@@ -1833,35 +1793,20 @@
             className: 'btn btn-light',
             show: true,
           },
-          {
-            katType: 'button',
-            id: 'downloadMpsBtn',
-            text: $.i18n.transtale('message.page.dowmload'), //下載
-            funname: 'downloadMpsBtn',
-            className: 'btn btn-light overlayFlag',
-          },
-          {
-            katType: 'button',
-            id: 'printMpsBtn',
-            text: $.i18n.transtale('message.page.print'), //列印
-            funname: 'printMpsBtn',
-            className: 'btn btn-light',
-            status45: true,
-          },
-          {
-            katType: 'button',
-            id: 'saveMpsBtn',
-            text: $.i18n.transtale('message.page.save'), //儲存
-            funname: 'saveMpsBtn',
-            className: 'btn btn-light overlayFlag',
-          },
-          {
-            katType: 'button',
-            id: 'submitMpsBtn',
-            text: $.i18n.transtale('message.page.sendPreTrial'), //送出預審
-            funname: 'submitMpsBtn',
-            className: 'btn btn-light overlayFlag',
-          },
+          // {
+          //   katType: 'button',
+          //   id: 'saveMpsBtn',
+          //   text: $.i18n.transtale('message.page.save'), //儲存
+          //   funname: 'saveMpsBtn',
+          //   className: 'btn btn-light overlayFlag',
+          // },
+          // {
+          //   katType: 'button',
+          //   id: 'submitMpsBtn',
+          //   text: $.i18n.transtale('message.page.sendPreTrial'), //送出預審
+          //   funname: 'submitMpsBtn',
+          //   className: 'btn btn-light overlayFlag',
+          // },
         ],
       },
       //提示文件 按鈕功能設定
@@ -1899,19 +1844,6 @@
               text: $.i18n.transtale('message.page.pdfBeSmall'), //Pdf縮小
               className: 'tooltip-sdrm DocBtn mr-3'
             },
-            {
-              funname: 'downloadMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.dowmload'), //下載
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-            {
-              funname: 'printOneMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.printOneFile'), //列印單一文件
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-
           ],
           [
             {
@@ -1949,19 +1881,6 @@
               text: $.i18n.transtale('message.page.pdfBeSmall'), //Pdf縮小
               className: 'tooltip-sdrm DocBtn mr-3'
             },
-            {
-              funname: 'downloadMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.dowmload'), //下載
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-            {
-              funname: 'printOneMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.printOneFile'), //列印單一文件
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-
           ],
           [
             {
@@ -2018,19 +1937,6 @@
         //信用狀
         textview: [
           [
-            {
-              funname: 'downloadMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.dowmload'), //下載
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-            {
-              funname: 'printOneMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.printOneFile'), //列印單一文件
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-
           ],
           [
             {
@@ -2068,19 +1974,6 @@
               text: $.i18n.transtale('message.page.pdfBeSmall'), //Pdf縮小
               className: 'tooltip-sdrm DocBtn mr-3'
             },
-            {
-              funname: 'downloadMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.dowmload'), //下載
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-            {
-              funname: 'printOneMpsBtn',
-              katType: 'katButton',
-              text: $.i18n.transtale('message.page.printOneFile'), //列印單一文件
-              className: 'tooltip-sdrm DocBtn mr-3'
-            },
-
           ],
           []
         ],

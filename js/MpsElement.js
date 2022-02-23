@@ -693,7 +693,9 @@ MpsElement.prototype = (function () {
 
               $ele = self.createMpsElement({ katType: 'a', className: className });
               $ele.append(self.createMpsElement({ katType: 'span', text: attrMap.text, className: 'tooltiptext-sdrm', }));
-              // $ele.append(self.createMpsElement({ katType: 'img', src: !katctbc.images[attrMap.funname] ? attrMap.id : attrMap.funname }));
+              if (katctbc.images[attrMap.funname]){
+                $ele.append(self.createMpsElement({ katType: 'img', src: attrMap.funname, width: '20px' }));
+              }     
               break;
             case 'katImgBtn':
               $ele = self.createMpsElement({

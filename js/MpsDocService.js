@@ -60,7 +60,7 @@ function toSBC(str) {
 }
 
 function generateUUID() {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, function (c) {
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function (c) {
     return (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
   });
 }
@@ -115,7 +115,17 @@ MpsDocService.prototype = (function () {
   /**
    * 此次編輯的填寫資料
    */
-  var saveData = {};
+  var saveData = {
+    thirdPartyDocUpload_1: [
+      {
+        canUpload: true,
+        docCategory: { text: 'BILL OF LADING', hasDiff: true, value: 'BL' },
+        hint: { text: 'O', value: 1 },
+        serialNo: "001",
+        shareWithOther: { text: 'X' },
+      },
+    ]
+  };
   /**
    * 各版本對應guid
    *   INV:{
@@ -371,7 +381,7 @@ MpsDocService.prototype = (function () {
         var result = this.downloadFile(guid);
 
         var mimeTypePrev = '';
-        switch(result.fileType){
+        switch (result.fileType) {
           case 'pdf':
             mimeTypePrev = 'application/';
             break;
@@ -483,8 +493,8 @@ MpsDocService.prototype = (function () {
      * 更新有關聯的欄位的值(第三方文件上傳 判斷有無編輯用欄位)
      * @param {*} key 
      */
-    updateAssociatedKey: function(key){
-      
+    updateAssociatedKey: function (key) {
+
       if (!key) {
         return;
       }
@@ -509,7 +519,7 @@ MpsDocService.prototype = (function () {
       }
 
       //只紀錄要做按鈕或前後都會有的頁籤欄位 不然會存一堆垃圾
-      if (needPrev.indexOf(key.split('_')[0]) != -1){
+      if (needPrev.indexOf(key.split('_')[0]) != -1) {
         if (!saveData['prev']) {
           saveData['prev'] = {};
         }
@@ -520,7 +530,7 @@ MpsDocService.prototype = (function () {
             saveData['prev'][key] = v;
           }
         }, -1);
-        
+
       }
 
     },
@@ -534,9 +544,9 @@ MpsDocService.prototype = (function () {
       katctbc.isSave = false;
 
       saveData[key] = data;
- 
-      this.updateAssociatedKey(key); 
-      
+
+      this.updateAssociatedKey(key);
+
       this.dataKeyToViewTemplate(key);
     },
     /**
@@ -553,7 +563,7 @@ MpsDocService.prototype = (function () {
         saveData[key][k] = data[k];
       });
 
-      this.updateAssociatedKey(key); 
+      this.updateAssociatedKey(key);
 
       this.dataKeyToViewTemplate(key);
     },
@@ -574,8 +584,8 @@ MpsDocService.prototype = (function () {
         saveData[key][idx][k] = data[k];
       });
 
-      this.updateAssociatedKey(key); 
-      
+      this.updateAssociatedKey(key);
+
       this.dataKeyToViewTemplate(key);
     },
     /**
@@ -723,7 +733,7 @@ MpsDocService.prototype = (function () {
                 switch (d.key) {
                   case 'docCategory':
                     //2022/1/6 判斷此行資料有無修改(第三方文件上傳) 2022/1/10加防呆
-                    if ((saveData.prev || {})[key]){
+                    if ((saveData.prev || {})[key]) {
                       var prevData = saveData.prev[key].filter(function (e) {
                         return e.serialNo == s.serialNo && e.docCategory.value == s.docCategory.value;
                       })[0];
@@ -857,7 +867,7 @@ MpsDocService.prototype = (function () {
      * 移除整套設定連動的欄位和欄位值
      */
     removeSyncColumnsByKey: function (caseSet) {
-      if (syncColumns[caseSet]){
+      if (syncColumns[caseSet]) {
         delete syncColumns[caseSet];
       }
     },
@@ -1003,10 +1013,10 @@ MpsDocService.prototype = (function () {
       //提示文件按鈕
       var caseNowVer = 0;
       //為不可編輯的模式
-      if(['4', '5'].indexOf(caseData.status) != -1){
-        
+      if (['4', '5'].indexOf(caseData.status) != -1) {
+
         //如果案件狀態是5(有儲存過才要抓prev的資料呈現)
-        if (caseData.status == '5'){
+        if (caseData.status == '5') {
           saveData = saveData['prev'];
         }
 
@@ -1026,7 +1036,7 @@ MpsDocService.prototype = (function () {
           return f;
         });
       }
-      
+
       this.lcCaseSetInfList(inf.lcCaseSetInfList);
 
       //其他判斷用 (會用到seqList 所以要在單據資料組完後執行)
@@ -1168,7 +1178,7 @@ MpsDocService.prototype = (function () {
               data = undefined;
               break;
             case 'thirdPartyDocUpload':
-              data = copyJson(data.map(function(d){
+              data = copyJson(data.map(function (d) {
                 d.hint = { text: 'X' };
                 d.shareWithOther = { text: 'X' };
                 delete d.fileNames;
@@ -1370,12 +1380,12 @@ MpsDocService.prototype = (function () {
       });
 
       //2022/1/7 如果case set inf完全沒資料要做的處理
-      if(result.length == 0){
+      if (result.length == 0) {
         result.push([]);
         katctbc.caseNowVer = (parseInt(caseData.status) - 1);
       }
 
-      if (seqList.length == 0){
+      if (seqList.length == 0) {
         seqList.push(1);
       }
 
@@ -1535,7 +1545,7 @@ MpsDocService.prototype = (function () {
               });
 
             });
-            
+
           }
 
           //是否有匯票
@@ -1632,7 +1642,7 @@ MpsDocService.prototype = (function () {
             //申請書份數
             var table_data = {
               docId: split_map.tabNameOfDoc[i] || docId,
-              num: split_map.num[i]|| 1
+              num: split_map.num[i] || 1
             };
             if (docAmount[0].length < 11) {
               docAmount[0].push(table_data)
@@ -1666,7 +1676,7 @@ MpsDocService.prototype = (function () {
             Object.keys(info).forEach(function (k) {
 
               var data = info[k];
-              if(k.toUpperCase() == 'NAME'){
+              if (k.toUpperCase() == 'NAME') {
                 data = self.getSysMenuByValue('1004', formid).cdNm.replace($.i18n.transtale('message.replace.otherDoc'), name_list[i] || name_list[0]);
               }
 
@@ -1740,14 +1750,14 @@ MpsDocService.prototype = (function () {
 
               var name_list = info.Name.split('@%');
 
-              info.serialNo.split('@%').forEach(function(no, i){
+              info.serialNo.split('@%').forEach(function (no, i) {
                 result.push({
                   id: docId + (no || ''),
                   text: name_list[i] || name_list[0],
                   funname: 'issueCheckChange',
                 });
               });
-   
+
             });
 
             result = self.setDocName(result, true);
@@ -1820,7 +1830,7 @@ MpsDocService.prototype = (function () {
             });
           }
         }
-        
+
       };
     })(),
     /**
@@ -1932,7 +1942,7 @@ MpsDocService.prototype = (function () {
                 if (i > 0) {
 
                   obj[k] = (obj[k] || '') + (o.serialNo ? '@%' : ' OR ') + (o[k] || '');
-            
+
                 } else {
                   obj[k] = o[k];
                 }
@@ -1991,7 +2001,7 @@ MpsDocService.prototype = (function () {
             };
 
             info.serialNo.split('@%').forEach(function (serialNo, i) {
-              
+
               var new_info = {};
 
               Object.keys(info).forEach(function (k) {
@@ -1999,7 +2009,7 @@ MpsDocService.prototype = (function () {
                 var d = info[k] || '';
 
 
-                if (Object.keys(split_map).indexOf(k) != -1){
+                if (Object.keys(split_map).indexOf(k) != -1) {
                   d = (split_map[k][i] == undefined) ? split_map[k][0] : split_map[k][i];
                 }
 
@@ -3471,8 +3481,8 @@ MpsDocService.prototype = (function () {
 
           if (a_val != b_val) {
             var l = self.getLabelByColName(katformid, k) || (k || '').replace('_1', '');
-            
-            if(l.indexOf('-mcu-') != -1) {//判斷為id
+
+            if (l.indexOf('-mcu-') != -1) {//判斷為id
               l = $.i18n.transtale('message.page.regularWord');//固定字串
             }
 
